@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Temps.h"
-#include "Adresse.h"
+#include "Temps.hpp"
+#include "Adresse.hpp"
 using namespace std;
 
 int main(){
