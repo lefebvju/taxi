@@ -1,13 +1,12 @@
+
 #include <string>
-
-
 class Adresse{
-    private:
+private:
         int num;
         std::string rue;
-        int codePostal;
+  int codePostal;
         std::string ville;
-    public:
+public:
         Adresse(){};
         Adresse(int num, std::string rue, int codePost,std::string ville):num(num), rue(rue), codePostal(codePost),ville(ville){};
         Adresse(std::string rue, int codePost,std::string ville):num(0),rue(rue), codePostal(codePost),ville(ville){};
