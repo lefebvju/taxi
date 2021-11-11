@@ -1,5 +1,19 @@
-all: test
+CXX = g++
+SRC = $(wildcard *.cpp)
+OBJ = $(SRC:.cpp=.o)
+EXEC = prog
+RM = rm -rf
 
-test: main.cpp
-	g++ -Wall -o  tax main.cpp
+all : $(EXEC)
 
+%.o : %.cpp
+	$(CXX) -o $@ -c $<
+
+$(EXEC) : $(OBJ)
+	$(CXX) -o $@ $^
+
+clean :
+	$(RM) $(OBJ)
+
+mrproper : clean
+	$(RM) $(EXEC)
