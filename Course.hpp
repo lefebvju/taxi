@@ -1,3 +1,4 @@
+#pragma once
 #include "Client.hpp"
 #include "Adresse.hpp"
 #include "Temps.hpp"
@@ -7,10 +8,11 @@
 
 struct Course{
     Chauffeur chauffeur;
-    int nbVoyageur;
-    Adresse depart;
     RDV rdv;
+    int nbVoyageur; 
+    Adresse depart;
     Temps tempsTrajet;
 
-    //Course(Chauffeur ch, Client cl, int nbV, Adresse depart,Adresse arriver, Temps tempsTrajet):chauffeur(ch),rdvclient(cl),nbVoyageur(nbV),depart(depart),rdv.arriver(arriver),tempsTrajet(tempsTrajet){};
+    Course(Chauffeur ch, RDV rdv, int nbV, Adresse depart, Temps tempsTrajet):chauffeur(ch),rdv(rdv),nbVoyageur(nbV),depart(depart),tempsTrajet(tempsTrajet){};
+    Course(){};
 };

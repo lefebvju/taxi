@@ -1,3 +1,4 @@
+#pragma once
 class Temps{
     private:
         int heures;
@@ -8,6 +9,10 @@ class Temps{
                 heures = heures+minutes/60;
                 minutes = minutes%60;
             }
+        };
+        Temps(){
+            heures=0;
+            minutes=0;
         };
         int getheures() const { return heures; }
         int getminutes() const { return minutes; }

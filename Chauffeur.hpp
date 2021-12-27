@@ -1,10 +1,12 @@
+#pragma once
 #include <string>
-
+using namespace std;
 
 struct Chauffeur{
-    std::string nom;
-    std::string prenom;
-    int tel;
+    string nom;
+    string prenom;
+    string tel;
 
-    Chauffeur(std::string nom,std::string prenom,int tel):nom(nom),prenom(prenom),tel(tel){};
+    Chauffeur(string nom,string prenom,string tel):nom(nom),prenom(prenom),tel(tel){};
+    Chauffeur(){};
 };
