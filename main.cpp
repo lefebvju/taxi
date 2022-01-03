@@ -6,6 +6,7 @@
 #include "Course.hpp"
 #include "calendrier.hpp"
 using namespace std;
+
 int main(){
     Chauffeur t1("Lefebvre","Nicolas","0666285939");
     Chauffeur t2("Stragiotti","Nicolas","0666666666");
@@ -25,7 +26,10 @@ int main(){
     {
         cal[1].affiche();
     }*/
-    cout<<cal;
+    cout<<cal<<endl;
+    
+
+
 
     return 0;
 }
