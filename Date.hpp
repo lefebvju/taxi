@@ -1,4 +1,5 @@
 #pragma once
+#include <iomanip>
 struct Date{
     int annees;
     int mois;
@@ -17,5 +18,9 @@ struct Date{
         }
             
             
+    };
+    friend ostream&  operator<<(ostream& os,const Date &structnoeud2){
+        os<<setw(2)<< setfill('0') <<structnoeud2.jours<<"/"<<setw(2)<< setfill('0') <<structnoeud2.mois<<"/"<<setw(4)<< setfill('0') <<structnoeud2.annees<<endl;;
+        return os;
     };
 };

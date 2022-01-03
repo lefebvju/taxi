@@ -22,5 +22,11 @@ public:
         Adresse(int num, string rue, string codePost,string ville);
         Adresse(string rue, string codePost,string ville);
         Adresse(string label);
-        
+        void affiche();
+        friend ostream&  operator<<(ostream& os,const Adresse &structnoeud2){
+        if(structnoeud2.num!=-1)
+                os<<structnoeud2.num<<" ";
+        os<<structnoeud2.rue<<" "<<structnoeud2.codePostal<<" "<<structnoeud2.ville<<endl;
+        return os;
+        };
 };
