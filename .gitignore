@@ -1,0 +1,6 @@
+*.o
+prog
+.vscode/*
+reseau/*
+test/*
+main.cpp
