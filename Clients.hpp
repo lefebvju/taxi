@@ -10,7 +10,7 @@
 
 Client* creationC(string *elem){
     Adresses r;
-    return new Client(elem[1],elem[2],stoi(elem[3]),r.adresse(elem[4]));
+    return new Client(elem[1],elem[2],elem[3],r.adresse(elem[4]));
 }
 
 class Clients
@@ -22,7 +22,7 @@ private:
 public:
     Clients(Adresses *r);
     ~Clients();
-    Client client(string nom, string prenom, int tel,Adresse adresse);
+    Client client(string nom, string prenom, string tel,Adresse adresse);
 };
 
 Clients::Clients(Adresses *r)
@@ -35,8 +35,8 @@ Clients::~Clients()
     Hash::enregistre<Client>(FICHIERC,nbelem,tab);
 }
 
-Client Clients::client(string nom, string prenom, int tel=0,Adresse adresse=Adresse()){
-    string s=nom+prenom+to_string(tel);
+Client Clients::client(string nom, string prenom, string tel="",Adresse adresse=Adresse()){
+    string s=nom+prenom+tel;
     int indice=Hash::hachage(s);
     if (tab[indice]==nullptr){
         Client* a=new Client(nom,prenom,tel,adresse);
@@ -47,6 +47,3 @@ Client Clients::client(string nom, string prenom, int tel=0,Adresse adresse=Adre
         return *(tab[indice]);
 }
 
-void Clients::creation(string *elem){
-
-}
