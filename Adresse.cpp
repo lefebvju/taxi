@@ -116,7 +116,9 @@ Adresse::Adresse(string label){
     }
     if(recieve.find("\"street\"")!=string::npos){
         this->rue=findjson(recieve,"\"street\"");
-    }
+    }else{
+		this->rue=" ";
+	}
     if(recieve.find("\"postcode\"")!=string::npos){
         this->codePostal=findjson(recieve,"\"postcode\"");
     }
@@ -129,7 +131,7 @@ Adresse::Adresse(string label){
 
 }
 
-Adresse::Adresse(int num, string rue, string codePost,string ville):num(num), rue(rue), codePostal(codePost),ville(ville){
+Adresse::Adresse(float latitude,float longitude,int num, string rue, string codePost,string ville):latitude(latitude),longitude(longitude),num(num), rue(rue), codePostal(codePost),ville(ville){
 
 }
 
@@ -138,3 +140,33 @@ Adresse::Adresse(string rue, string codePost,string ville):num(0),rue(rue), code
 }
 
 
+int Adresse::getnum(){
+	return this->num;
+}
+string Adresse::getrue(){
+	return this->rue;
+}
+string Adresse::getcodePostal(){
+	return this->codePostal;
+}
+string Adresse::getville(){
+	return this->ville;
+}
+float Adresse::getlatitude(){
+	return this->latitude;
+}
+float Adresse::getlongitude(){
+	return this->longitude;
+}
+
+string Adresse::tostring(string d){
+	return to_string(this->getlatitude())+d+to_string(this->getlongitude())+d+to_string(this->getnum())+d+this->getrue()+d+this->getcodePostal()+d+this->getville();
+}
+
+string Adresse::info(){
+	if (this->num==-1){
+		return this->getrue()+this->getcodePostal()+this->getville();
+	}else{
+		return to_string(this->getnum())+this->getrue()+this->getcodePostal()+this->getville();
+	}
+}

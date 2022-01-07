@@ -11,15 +11,16 @@ void charInutile(string* s);
 
 class Adresse{
 private:
+        float latitude;
+        float longitude;
         int num;
         string rue;
         string codePostal;
         string ville;
-        float latitude;
-        float longitude;
+
 public:
         Adresse(){};
-        Adresse(int num, string rue, string codePost,string ville);
+        Adresse(float latitude,float longitude,int num, string rue, string codePost,string ville);
         Adresse(string rue, string codePost,string ville);
         Adresse(string label);
         void affiche();
@@ -29,4 +30,12 @@ public:
         os<<structnoeud2.rue<<" "<<structnoeud2.codePostal<<" "<<structnoeud2.ville<<endl;
         return os;
         };
+        int getnum();
+        string getrue();
+        string getcodePostal();
+        string getville();
+        float getlatitude();
+        float getlongitude();
+        string tostring(string d);
+        string info();
 };
