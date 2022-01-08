@@ -13,7 +13,7 @@ int main(){
     Chauffeurs t;
     Adresses r;
     
-    Clients c(&r);
+    Clients c;
     //for (int client = 0; client < 10; client++)
     //{
        c.client("to_string(client)",string("prénom"),"123456789",r.adresse(string("07800 la voulte")));
@@ -29,7 +29,6 @@ int main(){
      //   cal[1].affiche();
     //}
     cout<<cal<<endl;
-    cout<<*r.tab[624];
 
     
 

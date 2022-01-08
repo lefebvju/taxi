@@ -39,8 +39,8 @@ Chauffeur Chauffeurs::chauffeur(string nom, string prenom, string tel){
         Chauffeur* a=new Chauffeur(nom,prenom,tel);
         tab[indice]=a;
         nbelem++;
-        return *a;
     }
+        Hash::enregistre(FICHIERT,nbelem,tab);
         return *(tab[indice]);
 }
 

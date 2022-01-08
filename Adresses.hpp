@@ -46,11 +46,10 @@ Adresse Adresses::adresse(string label){
         if (tab[verif]==nullptr){
         tab[verif]=a;
         nbelem++;
-        return *a;
-        }else{
-            return *(tab[verif]);
         }
+        indice=verif;
     }
+        Hash::enregistre(FICHIERA,nbelem,tab);
         return *(tab[indice]);
 }
 

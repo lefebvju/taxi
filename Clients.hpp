@@ -18,14 +18,13 @@ class Clients
 private:
     Client* tab[SIZE];
     int nbelem;
-    void creation(string *elem);
 public:
-    Clients(Adresses *r);
+    Clients();
     ~Clients();
     Client client(string nom, string prenom, string tel,Adresse adresse);
 };
 
-Clients::Clients(Adresses *r)
+Clients::Clients()
 {
     Hash::lie<Client>(FICHIERC,tab,&nbelem,creationC);   
 }
@@ -42,8 +41,9 @@ Client Clients::client(string nom, string prenom, string tel="",Adresse adresse=
         Client* a=new Client(nom,prenom,tel,adresse);
         tab[indice]=a;
         nbelem++;
-        return *a;
     }
+        Hash::enregistre(FICHIERC,nbelem,tab);
         return *(tab[indice]);
 }
+
 

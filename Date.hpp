@@ -6,6 +6,9 @@ struct Date{
     int jours;
     Date(int annees, int mois, int jours):annees(annees), mois(mois), jours(jours){};
     Date(){};
+    string tostring(string d){
+            return to_string(jours)+d+to_string(mois)+d+to_string(annees);
+        }
     bool operator<(const Date &dt)const{
         if (this->annees!=dt.annees){
             return this->annees<dt.annees;
