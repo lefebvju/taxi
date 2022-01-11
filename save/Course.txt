@@ -1,0 +1,2 @@
+1
+22;71;Stragiotti;Alexandra;0666666666;to_string(client);prénom;123456789; 07800La Voulte-sur-Rhone; 07800La Voulte-sur-Rhone;1;2;2022;9;30;1; 07800Saint-Laurent-du-Pape;1;30

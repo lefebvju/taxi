@@ -15,6 +15,9 @@ struct Course{
 
     Course(Chauffeur ch, RDV rdv, int nbV, Adresse depart, Temps tempsTrajet):chauffeur(ch),rdv(rdv),nbVoyageur(nbV),depart(depart),tempsTrajet(tempsTrajet){};
     Course(){};
+    string tostring(string d){
+        return chauffeur.tostring(d)+d+rdv.tostring(d)+d+to_string(nbVoyageur)+d+depart.info()+d+tempsTrajet.tostring(d);
+    }
 
     friend ostream&  operator<<(ostream& os,const Course &structnoeud2)
     {

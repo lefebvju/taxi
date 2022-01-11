@@ -1,6 +1,7 @@
 #pragma once
 #include <fstream>
 #define SIZE 1000
+#define MINSIZE 100
 
 namespace Hash{
     void homogene(string* s){
@@ -22,14 +23,28 @@ namespace Hash{
     {
         nombreHache += chaine[i];
     }
-    nombreHache %= 1000;
+    nombreHache %= SIZE;
+
+    return nombreHache;
+}
+
+int hachage(string chaine,int size)
+{
+    homogene(&chaine);
+    int i = 0, nombreHache = 0;
+
+    for (i = 0 ; chaine[i] != '\0' ; i++)
+    {
+        nombreHache += chaine[i];
+    }
+    nombreHache %= size;
 
     return nombreHache;
 }
 
 string* split(string s, string del)
 {
-    string* tab=new string[10];
+    string* tab=new string[30];
     int indice=0;
     int start = 0;
     int end = s.find(del);
@@ -68,6 +83,26 @@ void lie(string fichier,T *tab[SIZE],int *nbelem,T* (*creation)(string*))
 
 
 template <typename T>
+void lie(string fichier,T ***tab,int *nbelem,T* (*creation)(string*))
+{  
+    *nbelem=0;
+     ifstream f;
+    f.open(fichier);
+    if (f.good()){
+        f>>*nbelem;
+        string ligne;
+        getline(f, ligne);
+        while(getline(f, ligne)) 
+        {
+            string* elem=Hash::split(ligne,";");
+            tab[stoi(elem[0])][stoi(elem[1])]=creation(elem);
+        }
+    }
+    f.close();
+}
+
+
+template <typename T>
 void enregistre(string fichier,int nbelem,T *tab[SIZE])
 {
     ofstream  monFlux(fichier);
@@ -84,6 +119,25 @@ if(monFlux){
     monFlux.close();
 
 }
+
+
+template <typename T>
+void enregistre(string fichier,int nbelem,T ***tab)
+{
+    ofstream  monFlux(fichier);
+    if(monFlux){
+        monFlux<<nbelem<<endl;
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < MINSIZE; j++)
+            {
+                if(tab[i][j]!=nullptr){
+                    monFlux<<i<<";"<<j<<";"<<tab[i][j]->tostring(";")<<endl;
+                }
+            }
+        }          
+    }
+    monFlux.close();
+
 }
-
-
+}

@@ -9,10 +9,10 @@ struct RDV{
     Date date_RDV;
     Temps h_priseEnCharge;
 
-    RDV(Client client,Adresse adresse,Date date_RDV): client(client), adresse(adresse), date_RDV(date_RDV){};
+    RDV(Client client,Adresse adresse,Date date_RDV,Temps h): client(client), adresse(adresse), date_RDV(date_RDV),h_priseEnCharge(h){};
     RDV(){};
     string tostring(string d){
-        return client.tostring(" ")+d+adresse.info()+d+date_RDV.tostring(" ")+d+h_priseEnCharge.tostring(" ");
+        return client.tostring(d)+d+adresse.info()+d+date_RDV.tostring(d)+d+h_priseEnCharge.tostring(d);
     };
     
     friend ostream&  operator<<(ostream& os,const RDV &structnoeud2)
